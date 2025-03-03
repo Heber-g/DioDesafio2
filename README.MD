@@ -1,150 +1,151 @@
-<h1 align="center">
-  <br />
-  <img
-    src="./_docs/assets/icon.png"
-    alt="Mega Man Robots API"
-    width="150"
-  />
-  <br />
-  <b>Mega Man Robots API</b>
-  <br />
-  <sub
-    ><sup><b>(MEGA-MAN-ROBOTS)</b></sup></sub
-  >
-  <br />
-  <a
-    href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml"
-  >
-    <img
-      src="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml/badge.svg"
-      alt=""
-    />
-  </a>
-  <a href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/releases/latest">
-    <img
-      src="https://img.shields.io/github/v/release/felipeAguiarCode/MegaApiDotnetCore"
-      alt="Latest Release"
-    />
-  </a>
-</h1>
+# Megaman Bosses API
 
-<p align="center">
-  This .NET Core API is designed to serve JSON formatted data about bosses from
-  the Mega Man series. It is a backend service built with .NET Core 3.1 and
-  various modern dependencies for data management and API response handling.
-  <br />
-</p>
+## Descrição
+Esta API foi desenvolvida em .NET Core 3.1 para listar os bosses da franquia Megaman. O objetivo é fornecer um backend que retorna informações sobre os bosses no formato JSON.
 
-<p align="center">
-  Developed with Entity Framework Core and other modern .NET technologies, this
-  project aims to provide a robust API for accessing Mega Man robot data.
-  <br />
-</p>
+## Formato de Resposta
+A API retorna dados no seguinte formato:
 
-<p align="center">
-  <br />
-  <img src="./_docs/assets/carbon.png" />
-</p>
-
-## API Endpoints
-
-<table align="center">
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots</td>
-    <td>Returns a list of all robots</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots/{id}</td>
-    <td>Returns details of a specific robot by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/api/v1/robots</td>
-    <td>Endpoint to create a new robot entry</td>
-  </tr>
-</table>
-
-## Techniques Used
-
-<p align="center">
-  - <b>Entity Framework Core:</b> ORM for data management.<br />
-  - <b>RESTful API Design:</b> Ensures clear and effective communication
-  endpoints.<br />
-  - <b>Dependency Injection:</b> Used throughout to promote loose coupling and
-  enhanced testability.<br />
-</p>
-
-## Dependencies
-
-<table align="center">
-  <tr>
-    <th>Package</th>
-    <th>Version</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.Design</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.SqlServer</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Newtonsoft.Json</td>
-    <td>12.0.2</td>
-    <td>
-      <a href="https://www.nuget.org/packages/Newtonsoft.Json/12.0.2">NuGet</a>
-    </td>
-  </tr>
-</table>
-
-## :gear: Arch
-
-```🌐
-src
-├── 📂 Controllers      [Routes for endpoints]
-├── 📂 Models           [Database models]
-├── 📂 Services         [Business rules]
-├── 📂 Middlewares      [Intermediate functions between the HTTP request and the final server response]
-├── 📂 Database         [Structures related to the database]
-│   ├── 📂 DTOs             [Input Models and View Models (Data Transfer Objects)]
-│   ├── 📂 EntityFramework  [Files related to the ORM Entity Framework]
-│   │     ├── 📂 Context         [Entity context settings]
-│   │     ├── 📂 Migrations      [Migrations for database updates]
-│   ├── 📂 Repositories     [Repository pattern]
+```json
+{
+  "Id": 1,
+  "Code": "DLN/DRN-003",
+  "Name": "Cutman",
+  "HP": 150,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+}
 ```
 
-## License This software is licensed under the terms of the [MIT]
+## Tecnologias Utilizadas
+- [.NET Core 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
+- [Entity Framework Core 3.1.8](https://learn.microsoft.com/en-us/ef/core/)
+- [SQL Server](https://www.microsoft.com/pt-br/sql-server)
+- [Newtonsoft.Json 12.0.2](https://www.newtonsoft.com/json)
 
-⌨️ FelipeAguiar -
-[Github](https://github.com/felipeAguiarCode)
+## Estrutura do Projeto
+A estrutura do projeto segue o seguinte formato:
+
+```
+.vs
+.vscode
+bin
+Controllers
+Database
+middlewares
+Models
+obj
+Properties
+Services
+appsettings.Development.json
+appsettings.json
+global.json
+MegamanApi.csproj
+MegamanApi.sln
+Program.cs
+Startup.cs
+```
+
+## Pré-requisitos
+Antes de executar a aplicação, certifique-se de ter instalado:
+- [.NET Core SDK 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
+- [SQL Server](https://www.microsoft.com/pt-br/sql-server) ou outro banco compatível com o Entity Framework
+- [Git](https://git-scm.com/downloads)
+
+## Como Executar o Projeto
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/seu-repositorio.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd nome-do-projeto
+   ```
+3. Restaure as dependências:
+   ```sh
+   dotnet restore
+   ```
+4. Configure a conexão com o banco de dados no arquivo `appsettings.json`.
+5. Aplique as migrações do banco de dados:
+   ```sh
+   dotnet ef database update
+   ```
+6. Execute a aplicação:
+   ```sh
+   dotnet run
+   ```
+
+## Endpoints
+### Listar todos os bosses
+```http
+GET /api/bosses
+```
+**Resposta:**
+```json
+[
+  {
+    "Id": 1,
+    "Code": "DLN/DRN-003",
+    "Name": "Cutman",
+    "HP": 150,
+    "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+  },
+  ...
+]
+```
+
+### Buscar um boss por ID
+```http
+GET /api/bosses/{id}
+```
+**Resposta:**
+```json
+{
+  "Id": 1,
+  "Code": "DLN/DRN-003",
+  "Name": "Cutman",
+  "HP": 150,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+}
+```
+
+### Criar um novo boss
+```http
+POST /api/bosses
+```
+**Corpo da Requisição:**
+```json
+{
+  "Code": "DLN/DRN-004",
+  "Name": "Gutsman",
+  "HP": 200,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/4/44/Gutsman.png"
+}
+```
+**Resposta:**
+```json
+{
+  "Id": 2,
+  "Code": "DLN/DRN-004",
+  "Name": "Gutsman",
+  "HP": 200,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/4/44/Gutsman.png"
+}
+```
+
+## Testes
+Para executar os testes unitários do projeto:
+```sh
+ dotnet test
+```
+
+## Contribuição
+Contribuições são bem-vindas! Siga os seguintes passos:
+1. Faça um fork do repositório
+2. Crie uma nova branch (`git checkout -b feature/nova-feature`)
+3. Commit suas alterações (`git commit -m 'Adicionando nova feature'`)
+4. Envie para o repositório remoto (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Licença
+Este projeto é licenciado sob a MIT License. Para mais detalhes, consulte o arquivo LICENSE.
+
